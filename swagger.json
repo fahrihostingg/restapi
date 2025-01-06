@@ -1,0 +1,98 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Silvia - API",
+    "contact": {
+      "name": "Silvia",
+      "url": "https://wa.me/601159754638",
+      "whatsapp": "601159754638"
+    }
+  },
+  "paths": {
+    "/ai": {
+      "get": {
+        "tags": ["Ai"],
+        "summary": "Interaksi dengan AI",
+        "description": "Endpoint untuk interaksi dengan AI",
+               "parameters": [
+          {
+            "name": "prompt",
+            "in": "query",
+            "description": "Turbo 3.5",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+"/pinterest": {
+  "get": {
+    "summary": "Get images from Pinterest",
+    "tags": ["Search"],
+    "parameters": [
+      {
+        "in": "query",
+        "name": "query",
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "description": "Query string to search for images"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Successful response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "URL of the image"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+   },
+    "/ytdl": {
+      "get": {
+        "tags": ["Downloader"],
+        "summary": "Download audio & video dari YouTube",
+        "description": "Endpoint untuk download audio & video dari YouTube",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "URL video di YouTube"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+}
+}
